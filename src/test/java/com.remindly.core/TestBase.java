@@ -13,13 +13,14 @@ public class TestBase {
     @BeforeMethod
     public void setUp() throws MalformedURLException {
         app.init();
+        app.getMainScreen().confirm();
 
     }
 
     @AfterMethod(enabled = false)
     public void tearDown() {
         app.stop();
-        app.getMainScreen().confirm();
+//        app.getMainScreen().confirm();
 
     }
 

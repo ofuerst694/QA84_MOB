@@ -20,15 +20,23 @@ public class AppManager {
 
     public void init() throws MalformedURLException {
         capabilities = new DesiredCapabilities();
-        capabilities.setCapability( "platformName","Android");
-        capabilities.setCapability("automationName","UIAutomator2");
-        capabilities.setCapability( "platformVersion","11");
-        capabilities.setCapability("devicesName","mob");
-        capabilities.setCapability("appPackage","com.blanyal.remindly");
-        capabilities.setCapability("appActivity","com.blanyal.remindme.MainActivity");
-        capabilities.setCapability("app","C:/Users/7500251/Downloads/Remindly.apk");
+//        capabilities.setCapability( "platformName","Android");
+//        capabilities.setCapability("automationName","UIAutomator2");
+//        capabilities.setCapability( "platformVersion","11");
+//        capabilities.setCapability("devicesName","mob");
+//        capabilities.setCapability("appPackage","com.blanyal.remindly");
+//        capabilities.setCapability("appActivity","com.blanyal.remindme.MainActivity");
+//        capabilities.setCapability("app","C:/Users/7500251/Downloads/Remindly.apk");
 
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+        capabilities.setCapability("appium:platformName", "Android");
+        capabilities.setCapability("appium:automationName", "UIAutomator2");
+        capabilities.setCapability("appium:platformVersion", "11");
+        capabilities.setCapability("appium:devicesName", "mob");
+        capabilities.setCapability("appium:appPakage", "com.blanyal.remindly");
+        capabilities.setCapability("appium:appActivity", "com.blanyal.remindme.MainActivity");
+        capabilities.setCapability("appium:app", "C:/Users/7500251/Downloads/Remindly.apk");
+
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         mainScreen = new MainScreenHelper(driver);
